@@ -8,26 +8,21 @@ import {
   Button,
 } from "./styles/product";
 
-export default function Product({ children, ...restProps }) {
-  return <Container {...restProps}>{children}</Container>;
+export default function Product({ title, src, price, ...restProps }) {
+  return (
+    <Container {...restProps}>
+      <Info>
+        <p>{title}</p>
+        <Price>
+          <small>$</small>
+          <strong>{price}</strong>
+        </Price>
+        <Rating>
+          <p>⭐</p>
+        </Rating>
+      </Info>
+      <Image src={src} />
+      <Button>Add to Basket</Button>
+    </Container>
+  );
 }
-
-Product.Info = function ProductInfo({ children, ...restProps }) {
-  return <Info {...restProps}>{children}</Info>;
-};
-
-Product.Price = function ProductPrice({ children, ...restProps }) {
-  return <Price {...restProps}>{children}</Price>;
-};
-
-Product.Rating = function ProductRating({ children, ...restProps }) {
-  return <Rating {...restProps}>{children}</Rating>;
-};
-
-Product.Image = function ProductImage({ src, ...restProps }) {
-  return <Image src={src} />;
-};
-
-Product.Button = function ProductButton({ children, ...restProps }) {
-  return <Button {...restProps}>{children}</Button>;
-};

@@ -20,6 +20,7 @@ export const Background = styled.img`
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   z-index: 1;
   margin-left: 5px;

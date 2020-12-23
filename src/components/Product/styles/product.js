@@ -9,12 +9,14 @@ export const Container = styled.div`
   margin: 10px;
   padding: 20px;
   max-height: 400px;
+  max-width: 50%;
   min-width: 100px;
   background-color: white;
   z-index: 1;
 `;
 
 export const Info = styled.div`
+  text-align: left;
   height: 100px;
   margin-bottom: 10px;
 `;

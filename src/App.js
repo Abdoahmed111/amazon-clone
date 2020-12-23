@@ -1,13 +1,15 @@
-import "./App.css";
+import React from "react";
 import BodyContainer from "./containers/body";
 import HeaderContainer from "./containers/header";
+import { GlobalStyles } from "./global-styles";
 
 function App() {
   return (
-    <div className="App">
+    <React.Fragment>
+      <GlobalStyles />
       <HeaderContainer />
       <BodyContainer />
-    </div>
+    </React.Fragment>
   );
 }
 

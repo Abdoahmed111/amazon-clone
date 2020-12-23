@@ -4,7 +4,7 @@ import { Header } from "../components";
 export default function HeaderContainer({ children }) {
   return (
     <Header>
-      <Header.Logo src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+      <Header.Logo src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" />
       <Header.Search />
       <Header.Nav>
         <Header.NavOpt>
