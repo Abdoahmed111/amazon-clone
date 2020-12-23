@@ -15,6 +15,10 @@ export const Background = styled.img`
   z-index: -1;
   margin-bottom: -150px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+
+  @media (max-width: 600px) {
+    margin-bottom: -58px;
+  }
 `;
 
 export const Row = styled.div`

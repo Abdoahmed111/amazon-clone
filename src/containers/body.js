@@ -5,12 +5,11 @@ import { Body, Product } from "../components";
 export default function BodyContainer({ children, ...restProps }) {
   const [products, setProducts] = useState([]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     const result = await axios("https://fakestoreapi.com/products");
     setProducts(result.data);
   }, []);
-
-  console.log(products);
 
   return (
     <Body>
@@ -23,6 +22,7 @@ export default function BodyContainer({ children, ...restProps }) {
             title={product.title}
             src={product.image}
             price={product.price}
+            rating={Math.floor(Math.random() * (5 - 3 + 1)) + 3}
           />
         ))}
       </Body.Row>

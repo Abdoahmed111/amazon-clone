@@ -13,6 +13,10 @@ export const Container = styled.div`
   min-width: 100px;
   background-color: white;
   z-index: 1;
+
+  @media (max-width: 600px) {
+    max-width: 80%;
+  }
 `;
 
 export const Info = styled.div`
@@ -25,7 +29,9 @@ export const Price = styled.p`
   margin-top: 5px;
 `;
 
-export const Rating = styled.div``;
+export const Rating = styled.div`
+  display: flex;
+`;
 
 export const Image = styled.img`
   max-height: 200px;
