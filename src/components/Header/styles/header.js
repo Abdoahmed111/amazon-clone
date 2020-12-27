@@ -47,8 +47,13 @@ export const NavOpt = styled.div`
 export const OptText = styled.p`
   font-size: 13px;
   font-weight: 800;
+  color: white;
   margin-left: ${({ lastItem }) => lastItem && "10px"};
   margin-right: ${({ lastItem }) => lastItem && "10px"};
+
+  &:hover {
+    text-decoration: underline !important;
+  }
 `;
 
 export const TextSmall = styled.p`

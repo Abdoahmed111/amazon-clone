@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as ReactRouterLink } from "react-router-dom";
 import {
   Frame,
   Container,
@@ -29,8 +30,12 @@ Footer.Link = function FooterLink({ children, ...restProps }) {
   return <Link {...restProps}>{children}</Link>;
 };
 
-Footer.Logo = function FooterLogo({ src }) {
-  return <Logo src={src} />;
+Footer.Logo = function FooterLogo({ src, to }) {
+  return (
+    <ReactRouterLink to={to}>
+      <Logo src={src} />
+    </ReactRouterLink>
+  );
 };
 
 Footer.Break = function FooterBreak({ children, ...restProps }) {

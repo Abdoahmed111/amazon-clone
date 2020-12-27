@@ -35,7 +35,10 @@ export default function FooterContainer() {
         </Footer.Column>
       </Footer.Row>
       <Footer.Break />
-      <Footer.Logo src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+      <Footer.Logo
+        to="/"
+        src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+      />
     </Footer>
   );
 }

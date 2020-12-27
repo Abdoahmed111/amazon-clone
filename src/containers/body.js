@@ -19,6 +19,7 @@ export default function BodyContainer({ children, ...restProps }) {
         {products.map((product) => (
           <Product
             key={product.id}
+            id={product.id}
             title={product.title}
             src={product.image}
             price={product.price}

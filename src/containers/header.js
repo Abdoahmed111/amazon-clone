@@ -1,15 +1,22 @@
 import React from "react";
 import { Header } from "../components";
+import { useStateValue } from "../stateProvider/stateProvider";
 
-export default function HeaderContainer({ children }) {
+export default function HeaderContainer() {
+  const [{ basket }] = useStateValue();
+  console.log("this is the basket>>> ", basket);
+
   return (
     <Header>
-      <Header.Logo src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+      <Header.Logo
+        to="/"
+        src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+      />
       <Header.Search />
       <Header.Nav>
         <Header.NavOpt>
           <Header.TextSmall>Hello Guest</Header.TextSmall>
-          <Header.OptText>Sign In</Header.OptText>
+          <Header.OptText to="/login">Sign In</Header.OptText>
         </Header.NavOpt>
         <Header.NavOpt>
           <Header.TextSmall>Returns</Header.TextSmall>
@@ -19,8 +26,8 @@ export default function HeaderContainer({ children }) {
           <Header.TextSmall>Your</Header.TextSmall>
           <Header.OptText>Prime</Header.OptText>
         </Header.NavOpt>
-        <Header.BasketContainer>
-          <Header.OptText lastItem>0</Header.OptText>
+        <Header.BasketContainer to="/checkout">
+          <Header.OptText lastItem>{basket.length}</Header.OptText>
         </Header.BasketContainer>
       </Header.Nav>
     </Header>

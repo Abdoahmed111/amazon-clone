@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as ReactRouterLink } from "react-router-dom";
 import {
   Container,
   Logo,
@@ -18,8 +19,12 @@ export default function Header({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
 }
 
-Header.Logo = function HeaderLogo({ src, ...restProps }) {
-  return <Logo src={src} {...restProps} />;
+Header.Logo = function HeaderLogo({ to, ...restProps }) {
+  return (
+    <ReactRouterLink to={to}>
+      <Logo {...restProps} />
+    </ReactRouterLink>
+  );
 };
 
 Header.Search = function HeaderSearch({ ...restProps }) {
@@ -39,8 +44,12 @@ Header.NavOpt = function HeaderNavOpt({ children, ...restProps }) {
   return <NavOpt {...restProps}>{children}</NavOpt>;
 };
 
-Header.OptText = function HeaderOptText({ children, ...restProps }) {
-  return <OptText {...restProps}>{children}</OptText>;
+Header.OptText = function HeaderOptText({ children, to, ...restProps }) {
+  return (
+    <ReactRouterLink to={to}>
+      <OptText {...restProps}>{children}</OptText>
+    </ReactRouterLink>
+  );
 };
 
 Header.TextSmall = function HeaderTextSmall({ children, ...restProps }) {
@@ -49,12 +58,15 @@ Header.TextSmall = function HeaderTextSmall({ children, ...restProps }) {
 
 Header.BasketContainer = function HeaderBasketContainer({
   children,
+  to,
   ...restProps
 }) {
   return (
-    <BasketContainer {...restProps}>
-      <ShoppingBasketIcon />
-      {children}
-    </BasketContainer>
+    <ReactRouterLink to={to}>
+      <BasketContainer {...restProps}>
+        <ShoppingBasketIcon />
+        {children}
+      </BasketContainer>
+    </ReactRouterLink>
   );
 };
