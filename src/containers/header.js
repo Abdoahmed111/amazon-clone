@@ -1,10 +1,16 @@
 import React from "react";
 import { Header } from "../components";
+import { auth } from "../firebase/firebase";
 import { useStateValue } from "../stateProvider/stateProvider";
 
 export default function HeaderContainer() {
-  const [{ basket }] = useStateValue();
-  console.log("this is the basket>>> ", basket);
+  const [{ basket, user }] = useStateValue();
+
+  const handleAuthentication = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
 
   return (
     <Header>
@@ -14,9 +20,13 @@ export default function HeaderContainer() {
       />
       <Header.Search />
       <Header.Nav>
-        <Header.NavOpt>
-          <Header.TextSmall>Hello Guest</Header.TextSmall>
-          <Header.OptText to="/login">Sign In</Header.OptText>
+        <Header.NavOpt onClick={handleAuthentication}>
+          <Header.TextSmall>
+            {user ? user.displayName : `Hello Guest`}
+          </Header.TextSmall>
+          <Header.OptText to={!user && "/login"}>
+            {user ? `Sign Out` : `Sign In`}
+          </Header.OptText>
         </Header.NavOpt>
         <Header.NavOpt>
           <Header.TextSmall>Returns</Header.TextSmall>

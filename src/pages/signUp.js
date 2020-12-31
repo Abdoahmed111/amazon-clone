@@ -3,21 +3,33 @@ import { Form } from "../components";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../firebase/firebase";
 
-export default function Login() {
+export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
 
   const history = useHistory();
 
-  const signIn = (e) => {
+  const register = (e) => {
     e.preventDefault();
 
     auth
-      .signInWithEmailAndPassword(email, password)
-      .then((auth) => {
-        history.push("/");
-      })
-      .catch((error) => alert(error.message));
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) =>
+        auth.user
+          .updateProfile({
+            displayName: firstName,
+          })
+          .then(() => {
+            history.push("/");
+          })
+      )
+      .catch((error) => {
+        setFirstName("");
+        setEmail("");
+        setPassword("");
+        alert(error.messege);
+      });
   };
 
   return (
@@ -27,7 +39,14 @@ export default function Login() {
       </Link>
 
       <Form.Base>
-        <Form.Title>Sign in</Form.Title>
+        <Form.Title>Sign up</Form.Title>
+        <Form.Label>First Name</Form.Label>
+        <Form.Input
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
         <Form.Label>E-mail</Form.Label>
         <Form.Input
           type="text"
@@ -42,17 +61,17 @@ export default function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Form.Submit type="submit" onClick={signIn}>
-          Sign in
+        <Form.Submit type="submit" onClick={register}>
+          Create a New Account
         </Form.Submit>
         <Form.Text>
-          By signing-in you agree to the AMAZON FAKE CLONE Conditions of Use &
+          By signing-up you agree to the AMAZON FAKE CLONE Conditions of Use &
           Sale. Please see our Privacy Notice, our Cookies Notice and our
           Interest-Based Ads Notice.
         </Form.Text>
         <Form.Text>
-          New to Amazon?{" "}
-          <Form.Link to="/signup"> Create your Amazon Account</Form.Link>
+          Already have an account?
+          <Form.Link to="/login"> Login </Form.Link>
         </Form.Text>
       </Form.Base>
     </Form>

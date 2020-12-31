@@ -6,7 +6,7 @@ import { getBasketTotal } from "../stateProvider/reducer";
 import CartContainer from "./cart";
 
 export default function CheckoutContainer() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   console.log("This is the totalPrice >>> ", getBasketTotal(basket));
   // Total Price of the Basket
@@ -14,6 +14,7 @@ export default function CheckoutContainer() {
     <Checkout>
       <Checkout.Left>
         <Checkout.Image src="https://s3.envato.com/files/106489822/Big_Sale_Ad_Banners_Images/728x90.jpg" />
+        {user && <h2>Hello , {user.displayName}</h2>}
         <Checkout.Title>Your Shopping Basket</Checkout.Title>
         <CartContainer />
       </Checkout.Left>
