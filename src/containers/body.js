@@ -9,7 +9,7 @@ export default function BodyContainer({ children, ...restProps }) {
   useEffect(async () => {
     const result = await axios("https://fakestoreapi.com/products");
     setProducts(result.data);
-  }, []);
+  });
 
   return (
     <Body>
@@ -23,7 +23,7 @@ export default function BodyContainer({ children, ...restProps }) {
             title={product.title}
             src={product.image}
             price={product.price}
-            rating={Math.floor(Math.random() * (5 - 3 + 1)) + 3}
+            rating={5}
           />
         ))}
       </Body.Row>

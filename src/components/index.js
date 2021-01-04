@@ -6,3 +6,4 @@ export { default as Checkout } from "./checkout";
 export { default as Subtotal } from "./Subtotal";
 export { default as CheckoutProduct } from "./checkoutProduct";
 export { default as Form } from "./Form";
+export { default as Payment } from "./Payment";

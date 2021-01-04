@@ -7,6 +7,7 @@ import HeaderContainer from "./containers/header";
 import FooterContainer from "./containers/footer";
 import Login from "./pages/login";
 import SignUp from "./pages/signUp";
+import Payment from "./pages/payment";
 import { auth } from "./firebase/firebase";
 import { useStateValue } from "./stateProvider/stateProvider";
 
@@ -42,6 +43,7 @@ function App() {
         <Route path="/checkout" exact component={Checkout} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUp} />
+        <Route path="/payment" exact component={Payment} />
       </Switch>
       <FooterContainer />
     </Router>

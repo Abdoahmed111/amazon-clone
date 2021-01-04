@@ -13,6 +13,13 @@ export const Container = styled.div`
   min-width: 100px;
   background-color: white;
   z-index: 1;
+  border: none;
+  border-radius: 10px;
+  transition: all ease-in-out 0.25s;
+
+  &:hover {
+    transform: scale(1.035);
+  }
 
   @media (max-width: 600px) {
     max-width: 80%;
@@ -45,6 +52,11 @@ export const Button = styled.button`
   border: 1px solid;
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
-  border-radius: 2px;
+  border-radius: 3px;
   color: #111;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 `;
