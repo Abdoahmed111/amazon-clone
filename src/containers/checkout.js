@@ -18,6 +18,7 @@ export default function CheckoutContainer() {
         {user && <h2>Hello , {user.displayName}</h2>}
         <Checkout.Title>Your Shopping Basket</Checkout.Title>
 
+        {/* Cart Container */}
         <CartContainer />
       </Checkout.Left>
       <Checkout.Right>
