@@ -3,8 +3,6 @@ import Home from "./pages/home";
 import Checkout from "./pages/checkout";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { GlobalStyles } from "./global-styles";
-import HeaderContainer from "./containers/header";
-import FooterContainer from "./containers/footer";
 import Login from "./pages/login";
 import SignUp from "./pages/signUp";
 import Payment from "./pages/payment";
@@ -37,7 +35,6 @@ function App() {
   return (
     <Router>
       <GlobalStyles />
-      <HeaderContainer />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/checkout" exact component={Checkout} />
@@ -45,7 +42,6 @@ function App() {
         <Route path="/signup" exact component={SignUp} />
         <Route path="/payment" exact component={Payment} />
       </Switch>
-      <FooterContainer />
     </Router>
   );
 }

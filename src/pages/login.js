@@ -6,6 +6,7 @@ import { auth } from "../firebase/firebase";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const history = useHistory();
 
@@ -17,7 +18,11 @@ export default function Login() {
       .then((auth) => {
         history.push("/");
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => {
+        setEmail("");
+        setPassword("");
+        setError(error.message);
+      });
   };
 
   return (
@@ -25,6 +30,7 @@ export default function Login() {
       <Link to="/">
         <Form.Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png" />
       </Link>
+      {error && <Form.Error>{error}</Form.Error>}
 
       <Form.Base>
         <Form.Title>Sign in</Form.Title>

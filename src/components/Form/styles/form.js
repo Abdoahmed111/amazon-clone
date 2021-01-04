@@ -18,7 +18,14 @@ export const Image = styled.img`
   margin-left: auto;
 `;
 
-export const Error = styled.div``;
+export const Error = styled.div`
+  background: #ff9a00;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 0 0 16px;
+  color: white;
+  padding: 15px 20px;
+`;
 
 export const Title = styled.h1`
   text-align: center;
